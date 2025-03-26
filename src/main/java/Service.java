@@ -1,3 +1,4 @@
+@MyComponent
 public class Service {
     @MyAutowired
     private Repository repository;
