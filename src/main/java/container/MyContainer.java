@@ -1,3 +1,5 @@
+package container;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class MyContainer {
 
     private void inject(Object instance) throws Exception {
         for(Field field : instance.getClass().getDeclaredFields()) {
-            // @MyAutowired 가 붙은 필드를 골라 낸다.
+            // @container.MyAutowired 가 붙은 필드를 골라 낸다.
             if(field.isAnnotationPresent(MyAutowired.class)) {
                 // field 타입을 key 로 value 인 타겟 instance 를 뽑아서 dependency 에 넣어 준다.
                 Object dependency = instances.get(field.getType());

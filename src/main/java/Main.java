@@ -1,4 +1,8 @@
-import java.lang.reflect.Array;
+import container.ComponentContainer;
+import container.MyContainer;
+import repository.Repository;
+import service.Service;
+
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
@@ -11,15 +15,13 @@ public class Main {
         f.set(service, new Repository());
         service.test();
 
-        System.out.println("\n2. @MyAutoWired + DI");
+        System.out.println("\n2. @MyAutoWired + DI: 수동");
         MyContainer container = new MyContainer();
         container.register(Repository.class, Service.class);
         Service service2 = container.get(Service.class);
         service2.test();
 
-        System.out.println("\nservice 와 service2 는 같은 인스턴스인가요? " + (service == service2)); // false
-
-        System.out.println("\n3. @MyComponent scan");
+        System.out.println("\n3. @container.MyComponent scan");
         ComponentContainer container1 = new ComponentContainer();
         container1.scan(Arrays.asList(Repository.class, Service.class));
         Service service3 = container1.get(Service.class);

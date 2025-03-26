@@ -1,3 +1,7 @@
+package repository;
+
+import container.MyComponent;
+
 @MyComponent
 public class Repository {
     public void save() {
